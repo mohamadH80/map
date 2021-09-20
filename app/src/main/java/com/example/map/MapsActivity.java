@@ -1,7 +1,11 @@
 package com.example.map;
 
 import androidx.fragment.app.FragmentActivity;
+
 import android.os.Bundle;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -42,10 +46,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        // Add a marker in Tehran and move the camera
+//            Toast.makeText(getApplicationContext(), "onMapReady", Toast.LENGTH_SHORT).show();
+
+        LatLng tehran = new LatLng(35.69, 51.39); //tehran
+        mMap.addMarker(new MarkerOptions().position(tehran).title("marker is in tehran"));
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(tehran, 13);
+        mMap.moveCamera(cameraUpdate);
+
+
     }
 
 }
