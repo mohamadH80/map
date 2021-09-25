@@ -31,6 +31,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         //nh
+
+
     }
 
     /**
@@ -42,15 +44,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Tehran and move the camera
-//            Toast.makeText(getApplicationContext(), "onMapReady", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "choose start", Toast.LENGTH_SHORT).show();
 
         LatLng tehran = new LatLng(35.69, 51.39); //tehran
-        mMap.addMarker(new MarkerOptions().position(tehran).title("marker is in tehran"));
+//        mMap.addMarker(new MarkerOptions().position(tehran).title("marker is in tehran"));
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(tehran, 13);
         mMap.moveCamera(cameraUpdate);
 
